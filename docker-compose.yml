@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  phpcs:
+    container_name: phpcs
+    build: 
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true 
+    entrypoint: ["/bin/sh","-c"]
+    command: 
+    - tail -f /dev/null
+    volumes:
+      - ~/Hapitas/app-server-side:/data/app-server-side
+      - ~/Hapitas/spitz:/data/spitz
+      - ~/Hapitas/mango:/data/mango
+      - ~/Hapitas/ameba:/data/ameba
+      - ~/Hapitas/woodstock:/data/woodstock
+      - ~/Hapitas/aslan:/data/aslan
+      - ~/Hapitas/aslan-batch:/data/aslan-batch
+      - ~/Hapitas/maple:/data/maple
+      - ~/Hapitas/apollo:/data/apollo
+      - ./test_runner_phpcs.sh:/data/test_runner.sh
